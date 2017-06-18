@@ -3,6 +3,8 @@
 
 ObjetosMoviles::ObjetosMoviles(void)
 {
+	velocidad.x = 0;
+	velocidad.y = 0;
 }
 
 
@@ -14,7 +16,7 @@ void ObjetosMoviles::mueve(float t)
 {
 	posicion = posicion + velocidad*t;
 }
-void ObjetosMoviles::setVel(Vector2D vel)
+ void ObjetosMoviles::setVel(Vector2D vel)
 {
 	velocidad = vel;
 }

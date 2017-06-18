@@ -7,6 +7,7 @@ public:
 	virtual ~Hormiga();
 	void dibuja();
 	void setAltura(float);
+
 private:
 	float altura;
 };

@@ -1,10 +1,17 @@
 #include "Hormiga.h"
 #include "comunH\glut.h"
+Hormiga::Hormiga(float ix, float iy)
+{
+	altura = 0.1f;
+	color.set(10, 200, 255);
+	setPos(ix, iy);
+}
 Hormiga::Hormiga()
 {
-	altura = 0.2f;
+	altura = 0.1f;
 	color.set(10, 200, 255);
 }
+
 
 
 Hormiga::~Hormiga()

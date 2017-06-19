@@ -49,11 +49,11 @@ void OnDraw(void)
 	//Para definir el punto de vista
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
- 
+
 
 	mapa.dibuja();		 //aqui es donde hay que poner el código de dibujo
-	
-	
+
+
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();

@@ -29,4 +29,20 @@ void Caja::dibuja()
 	techo.dibuja();
 	pared_izq.dibuja();
 	pared_dcha.dibuja();
+	glEnable(GL_TEXTURE_2D);
+
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/grass.png").id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+
+	glTexCoord2d(0, 1);		glVertex3f(-29, -6, -0.1);
+	glTexCoord2d(1, 1);		glVertex3f(29, -6, -0.1);
+	glTexCoord2d(1, 0);		glVertex3f(29, 36, -0.1);
+	glTexCoord2d(0, 0);		glVertex3f(-29, 36, -0.1);
+	glEnd();
+
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
+
 }

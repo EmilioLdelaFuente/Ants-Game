@@ -10,6 +10,7 @@ public:
 	void setLimit(float x1, float y1, float x2, float y2);
 	float distancia(Vector2D punto, Vector2D *direccion);
 	void dibuja();
+	friend class Interaccion;
 
 protected:
 	Vector2D limite1;

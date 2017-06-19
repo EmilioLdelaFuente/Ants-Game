@@ -31,25 +31,25 @@ void Interaccion::rebote(Hormiga &h, Caja c)
 	if (h.posicion.y<ymin){
 		h.posicion.y = ymin;
 		h.velocidad.y = 0;
-	}
+	} 
 }
 
-/*bool Interaccion::rebote(Hormiga &h1, Hormiga &h2)
+bool Interaccion::rebote(Hormiga &hormiga1, Hormiga &hormiga2)
 {
 	//Vector que une los centros
-	Vector2D dif = h2.posicion - h1.posicion;
+	Vector2D dif = hormiga2.posicion - hormiga1.posicion;
 	float d = dif.modulo();
-	float dentro = d - (h1.altura + h2.altur);
+	float dentro = d - (hormiga1.altura + hormiga2.altura);
 
 	if (dentro<0.0f)//si hay colision
 	{
 		//El modulo y argumento de la velocidad de la pelota1
-		float v1 = esfera1.velocidad.modulo();
-		float ang1 = esfera1.velocidad.argumento();
+		float v1 = hormiga1.velocidad.modulo();
+		float ang1 = hormiga1.velocidad.argumento();
 
 		//El modulo y argumento de la velocidad de la pelota2
-		float v2 = esfera2.velocidad.modulo();
-		float ang2 = esfera2.velocidad.argumento();
+		float v2 = hormiga2.velocidad.modulo();
+		float ang2 = hormiga2.velocidad.argumento();
 
 		//el argumento del vector que une los centros
 		float angd = dif.argumento();
@@ -57,8 +57,8 @@ void Interaccion::rebote(Hormiga &h, Caja c)
 		//Separamos las esferas, lo que se han incrustado
 		//la mitad cada una
 		Vector2D desp(dentro / 2 * cos(angd), dentro / 2 * sin(angd));
-		esfera1.posicion = esfera1.posicion + desp;
-		esfera2.posicion = esfera2.posicion - desp;
+		hormiga1.posicion = hormiga1.posicion + desp;
+		hormiga2.posicion = hormiga2.posicion - desp;
 
 		angd = angd - 3.14159f / 2;//la normal al choque
 
@@ -78,8 +78,8 @@ void Interaccion::rebote(Hormiga &h, Caja c)
 		float v2x = u2x;
 
 		//en el eje Y, rebote elastico
-		float m1 = esfera1.radio;
-		float m2 = esfera2.radio;
+		float m1 = hormiga1.altura;
+		float m2 = hormiga2.altura;
 		float py = m1*u1y + m2*u2y;//Cantidad de movimiento inicial ejey
 		float ey = m1*u1y*u1y + m2*u2y*u2y;//Energia cinetica inicial ejey
 
@@ -102,20 +102,20 @@ void Interaccion::rebote(Hormiga &h, Caja c)
 		fi2 = angd + atan2(v2y, v2x);
 
 		//Velocidades en absolutas despues del choque en componentes
-		esfera1.velocidad.x = modv1*cos(fi1);
-		esfera1.velocidad.y = modv1*sin(fi1);
-		esfera2.velocidad.x = modv2*cos(fi2);
-		esfera2.velocidad.y = modv2*sin(fi2);
+		hormiga1.velocidad.x = modv1*cos(fi1);
+		hormiga1.velocidad.y = modv1*sin(fi1);
+		hormiga2.velocidad.x = modv2*cos(fi2);
+		hormiga2.velocidad.y = modv2*sin(fi2);
 	}
 	return false;
-}*/
+}
 bool Interaccion::colision(Hormiga e, Comidita h)
 {
 	Vector2D pos = h.getPos(); //la posicion del hombre de la base
-	pos.y += h.getlado() / 2.0f; //posicion del centro
+	pos.y += h.getlado()/2.0f; //posicion del centro
 
 	float distancia = (e.posicion - pos).modulo();
-	if (distancia<e.altura)
+	if (distancia<e.altura+1.0f)
 		return true;
 	return false;
 }

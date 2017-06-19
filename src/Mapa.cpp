@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include "Interacción.h"
+#include "ListaComida.h"
 
 
 
@@ -21,8 +22,9 @@ void Mapa::dibuja()
 	//aqui es donde hay que poner el codigo de dibujo
 	caja.dibuja();
 	hormiga.dibuja();
-	comida.dibuja();
 	hormigas.dibuja();
+	BALOO.dibuja();
+	comidas.dibuja();
 
 
 }
@@ -33,6 +35,9 @@ void Mapa::mueve(float t)
 	Interaccion::rebote(hormiga, caja);
 	hormigas.mueve(t);
 	hormigas.rebote(caja);
+	hormigas.rebote();
+	hormigas.rebote(hormiga);
+	comidas.colision(hormigas);
 }
 
 void Mapa::inicializa()
@@ -41,6 +46,17 @@ void Mapa::inicializa()
 	x_ojo = hormiga.getPosx();
 	y_ojo = hormiga.getPosy();
 	z_ojo = 30;
+	comidas.agregar(new Comidita{ 10, 20 });
+	comidas.agregar(new Comidita{ 0, 20 });
+	comidas.agregar(new Comidita{ -10, 25 });
+	comidas.agregar(new Comidita{ 17, 3 });
+	comidas.agregar(new Comidita{ 45, 20 });
+	comidas.agregar(new Comidita{ 30, -5 });
+	comidas.agregar(new Comidita{ 7, -6 });
+	comidas.agregar(new Comidita{ 26, -26 });
+	comidas.agregar(new Comidita{ 30, 0 });
+	comidas.agregar(new Comidita{ 1, 35 });
+	comidas.agregar(new Comidita{ 35, -35 });
 }
 
 void Mapa::tecla(unsigned char key)

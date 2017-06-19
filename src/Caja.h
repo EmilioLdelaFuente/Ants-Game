@@ -1,20 +1,16 @@
-
 #pragma once
-
 #include "Pared.h"
-
-class Caja  
+class Caja
 {
-	friend class Interaccion;
 public:
-	void dibuja();
 	Caja();
 	virtual ~Caja();
+	void dibuja();
+	friend class Interaccion;
 private:
 	Pared suelo;
 	Pared techo;
 	Pared pared_izq;
 	Pared pared_dcha;
-
 };
 

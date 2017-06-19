@@ -1,15 +1,13 @@
 
 #pragma once
-
-
-class Vector2D  
+#include <stdlib.h>
+class Vector2D
 {
 public: //atributos
 	float x;
 	float y;
-
 public: //métodos
-	Vector2D(float xv=0.0f,float yv=0.0f); // (1)
+	Vector2D(float xv = 0.0f, float yv = 0.0f); // (1)
 	virtual ~Vector2D();
 
 	float modulo();			   // (2) modulo del vector

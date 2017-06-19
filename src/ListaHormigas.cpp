@@ -90,3 +90,14 @@ void ListaHormigas::rebote(Caja caja){
 	for (int i = 0; i<numero; i++)
 		Interaccion::rebote(*(lista[i]), caja);
 }
+void ListaHormigas::rebote()
+{
+	for (int i = 0; i<numero - 1; i++)
+	for (int j = i + 1; j<numero; j++)
+		Interaccion::rebote(*(lista[i]), *(lista[j]));
+}
+void ListaHormigas::rebote(Hormiga &hormi){
+	for (int i = 0; i < numero;i++){
+		Interaccion::rebote(*(lista[i]), hormi);
+	}
+}

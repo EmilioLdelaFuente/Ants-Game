@@ -7,7 +7,7 @@ class Comidita : public Objetos
 	float lado;
 	friend class Interaccion;
 public:
-	Comidita();
+	Comidita(float ix, float iy);
 	virtual ~Comidita();
 	void dibuja();
 	float getlado();

@@ -5,8 +5,9 @@
 
 
 
-Comidita::Comidita()
+Comidita::Comidita(float ix, float iy)
 {
+	setPos(ix, iy);
 	lado = 0.5;
 }
 

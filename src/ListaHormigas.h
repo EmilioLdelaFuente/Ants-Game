@@ -19,6 +19,7 @@ public:
 	void setVel(float,float);
 	Hormiga* colision(Comidita c);
 	void rebote(Caja caja);
+	void rebote(Hormiga &hormi);
 	
 
 	bool agregar(Hormiga* h);
@@ -28,6 +29,7 @@ public:
 
 	int getNumero(){ return numero; }
 	Hormiga* operator[] (int index);
+	void rebote();
 
 private:
 	Hormiga * lista[MAX_hormigas];

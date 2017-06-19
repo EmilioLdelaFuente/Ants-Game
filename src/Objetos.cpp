@@ -5,6 +5,12 @@ Objetos::Objetos()
 	posicion.x = 0.0;
 	posicion.y = 10.0;
 }
+Objetos::Objetos(float ix, float iy)
+{
+	posicion.x = ix;
+	posicion.y = iy;
+}
+
 
 
 Objetos::~Objetos()
@@ -29,4 +35,9 @@ float Objetos::getPosx()
 float Objetos::getPosy()
 {
 	return posicion.y;
+}
+void Objetos::setPos(float ix, float iy)
+{
+	posicion.x = ix;
+	posicion.y = iy;
 }

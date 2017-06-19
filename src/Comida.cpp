@@ -1,11 +1,13 @@
-#include "Comida.h"
+#pragma once
 #include <stdlib.h>
 #include "comunH\glut.h"
+#include "Comida.h"
 
 
 
-Comida::Comida()
+Comida::Comida(float ix, float iy)
 {
+	setPos(ix, iy);
 	lado = 0.5;
 }
 
@@ -24,5 +26,8 @@ void Comida::dibuja()
 	glutSolidCube(lado);
 	glPopMatrix();
 
-	
+
+}
+float Comida::getlado() {
+	return lado;
 }

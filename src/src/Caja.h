@@ -6,6 +6,7 @@ public:
 	Caja();
 	virtual ~Caja();
 	void dibuja();
+	friend class Interaccion;
 private:
 	Pared suelo;
 	Pared techo;

@@ -1,14 +1,18 @@
 #pragma once
 #include"Hormiga.h"
 #include"Caja.h"
-#include"Comida.h"
+#include"Comidita.h"
+#include "ListaHormigas.h"
+#include "OsoHormiguero.h"
+#include "ListaComida.h"
 
 class Mapa
 {
-
+	ListaHormigas hormigas;
+	ListaComida comidas;
 	Caja caja;
 	Hormiga hormiga;
-	Comida comida;
+	OsoHormiguero BALOO{ 30.0f, 35.0f };
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;

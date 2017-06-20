@@ -1,4 +1,5 @@
 #include "ListaComidas.h"
+#include "Interaccion.h"
 
 
 
@@ -40,9 +41,12 @@ bool ListaComidas::agregar(Comida *d)
 int ListaComidas::getNum() {
 	return numero;
 }
-bool ListaComidas::colision(ListaHormigas Lis) {
+void ListaComidas::comer(Hormiga &h, ListaHormigas &lis) {
 	for (int i = 0; i < numero; i++) {
-		Lis.colision(*lista[i]);
-	}
-	return true;
+		if (Interaccion::colision(h, *lista[i])) {
+			lista[i]->destruir();
+			lis.agregar(new Hormiga(h.getPosx() - rand() % -3, h.getPosy() + rand() % 3 - 2));
+		}
+			
+		}
 }

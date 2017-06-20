@@ -6,7 +6,7 @@
 #include "ListaComidas.h"
 
 
-
+int c;
 void Mapa::moverOjo()
 {
 	x_ojo = hormiga.getPosx();
@@ -34,29 +34,28 @@ void Mapa::mueve(float t)
 	hormiga.mueve(t);
 	Interaccion::rebote(hormiga, caja);
 	hormigas.mueve(t);
+	if (c==0)hormigas.muevete(hormiga);
 	hormigas.rebote(caja);
 	hormigas.rebote();
 	hormigas.rebote(hormiga);
-	comidas.colision(hormigas);
+	BALOO.mueve(t);
+	BALOO.SeguirHormiga(hormiga);
+	comidas.comer(hormiga,hormigas);
 }
 
 void Mapa::inicializa()
 {
+	c = 0;
 	hormiga.setAltura(0.3f);
 	x_ojo = hormiga.getPosx();
 	y_ojo = hormiga.getPosy();
 	z_ojo = 30;
-	comidas.agregar(new Comida{ 10, 20 });
 	comidas.agregar(new Comida{ 0, 20 });
+	comidas.agregar(new Comida{ 0, 25 });
+	comidas.agregar(new Comida{ 10, 20 });
+	comidas.agregar(new Comida{ 10, 25 });
+	comidas.agregar(new Comida{ 0, -20 });
 	comidas.agregar(new Comida{ -10, 25 });
-	comidas.agregar(new Comida{ 17, 3 });
-	comidas.agregar(new Comida{ 45, 20 });
-	comidas.agregar(new Comida{ 30, -5 });
-	comidas.agregar(new Comida{ 7, -6 });
-	comidas.agregar(new Comida{ 26, -26 });
-	comidas.agregar(new Comida{ 30, 0 });
-	comidas.agregar(new Comida{ 1, 35 });
-	comidas.agregar(new Comida{ 35, -35 });
 }
 
 void Mapa::tecla(unsigned char key)
@@ -66,26 +65,20 @@ void Mapa::tecla(unsigned char key)
 	{
 	case 'a':
 		hormiga.setVel(-5.0f, 0.0f);
-		hormigas.setVel(-5.0f, 0.0f);
 		break;
 	case 'w':
 		hormiga.setVel(0.0f, 5.0f);
-		hormigas.setVel(0.0f, 5.0f);
 		break;
 	case 's':
 		hormiga.setVel(0.0f, -5.0f);
-		hormigas.setVel(0.0f, -5.0f);
 		break;
 	case 'd':
 		hormiga.setVel(5.0f, 0.0f);
-		hormigas.setVel(5.0f, 0.0f);
 		break;
 	case 'x':
-		hormiga.setVel(0.0f, 0.0f);
-		hormigas.agregar(new Hormiga(hormiga.getPosx() - rand() % -3, hormiga.getPosy() + rand() % 3 - 2));
-		hormigas.setVel(0.0f, 0.0f);
+		hormigas.mata(BALOO);
+		c = 1;
 		break;
-
 	}
 
 }

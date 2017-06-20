@@ -31,3 +31,6 @@ void Comida::dibuja()
 float Comida::getlado() {
 	return lado;
 }
+void Comida::destruir() {
+	delete this;
+}

@@ -11,4 +11,5 @@ public:
 	virtual ~Comida();
 	void dibuja();
 	float getlado();
+	void destruir();
 };

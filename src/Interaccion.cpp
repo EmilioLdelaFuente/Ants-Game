@@ -112,10 +112,10 @@ bool Interaccion::rebote(Hormiga &hormiga1, Hormiga &hormiga2)
 bool Interaccion::colision(Hormiga e, Comida h)
 {
 	Vector2D pos = h.getPos(); //la posicion del hombre de la base
-	pos.y += h.getlado() / 2.0f; //posicion del centro
+	pos.y -= h.getlado()/2.0f ; //posicion del centro
 
 	float distancia = (e.posicion - pos).modulo();
-	if (distancia<e.altura + 1.0f)
+	if (distancia<e.altura )
 		return true;
 	return false;
 }

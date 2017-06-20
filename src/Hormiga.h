@@ -8,9 +8,12 @@ public:
 	Hormiga();
 	Hormiga(float, float);
 	virtual ~Hormiga();
+	void Hormiga::muevete(Hormiga &h);
 	void dibuja();
 	void setAltura(float);
 	friend class Interaccion;
+	friend class OsoHormiguero;
+	void mata(OsoHormiguero &oso);
 
 private:
 	float altura;

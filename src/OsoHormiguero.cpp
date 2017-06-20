@@ -1,5 +1,6 @@
 #include "OsoHormiguero.h"
 #include "comunH\glut.h"
+#include "Vector2D.h"
 
 
 OsoHormiguero::OsoHormiguero()
@@ -27,4 +28,12 @@ void OsoHormiguero::dibuja() {
 }
 void OsoHormiguero::setAltura(float a) {
 	altura = a;
+}
+void OsoHormiguero::mueve(float t) {
+	posicion = posicion + velocidad*t;
+}
+void OsoHormiguero::SeguirHormiga(Hormiga &h){
+	Vector2D resta;
+	resta = h.posicion - posicion;
+	velocidad = resta * 0.025f;
 }

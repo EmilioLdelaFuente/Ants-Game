@@ -1,6 +1,7 @@
 #include "ListaHormigas.h"
 #include "Interaccion.h"
 
+
 ListaHormigas::ListaHormigas(void)
 {
 	numero = 0;
@@ -36,6 +37,11 @@ void ListaHormigas::mueve(float t)
 {
 	for (int i = 0; i<numero; i++)
 		lista[i]->mueve(t);
+}
+void ListaHormigas::muevete(Hormiga &e)
+{
+	for (int i = 0; i<numero; i++)
+		lista[i]->muevete(e);
 }
 void ListaHormigas::setPos(float a, float b) {
 	for (int i = 0; i<numero; i++)
@@ -100,4 +106,9 @@ void ListaHormigas::rebote(Hormiga &hormi) {
 	for (int i = 0; i < numero; i++) {
 		Interaccion::rebote(*(lista[i]), hormi);
 	}
+}
+void ListaHormigas::mata(OsoHormiguero &oso) {
+	for (int i = 0; i<numero; i++)
+		lista[i]->mata(oso);
+
 }

@@ -1,5 +1,5 @@
 #include "ColorRGB.h"
-#include "comunH\glut.h"
+#include "glut.h"
 
 
 ColorRGB::ColorRGB(Byte _r, Byte _v, Byte _a)

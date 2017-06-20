@@ -1,6 +1,6 @@
 #include "Caja.h"
-#include"comunH\glut.h"
-#include"comunH\ETSIDI.h"
+#include"glut.h"
+#include"ETSIDI.h"
 
 
 

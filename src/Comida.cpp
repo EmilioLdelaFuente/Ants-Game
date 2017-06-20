@@ -1,6 +1,6 @@
 #pragma once
 #include <stdlib.h>
-#include "comunH\glut.h"
+#include "glut.h"
 #include "Comida.h"
 
 
@@ -30,4 +30,7 @@ void Comida::dibuja()
 }
 float Comida::getlado() {
 	return lado;
+}
+void Comida::destruir() {
+	delete this;
 }

@@ -2,6 +2,7 @@
 #include "Caja.h"
 #include "Hormiga.h"
 #include "Comida.h"
+#include "OsoHormiguero.h"
 
 class Interaccion
 {
@@ -16,6 +17,7 @@ public:
 
 	//funciones de informacion, no cambian los objetos, solo devuelven true si hay colision
 	static bool colision(Hormiga e, Comida h);
+	static bool colision(Hormiga e, OsoHormiguero o);
 
 
 };

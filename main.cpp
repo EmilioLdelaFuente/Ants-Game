@@ -1,10 +1,11 @@
 #include <stdlib.h>
-#include <math.h>
-#include "ETSIDI.h"
-#include "Mapa.h"
 #include "glut.h"
+#include <math.h>
+#include "Mapa.h"
+#include "coordinador.h"
 
-Mapa mapa;
+coordinador coo;
+//Mapa mapa;
 
 
 //los callback, funciones que seran llamadas automaticamente por la glut
@@ -35,7 +36,7 @@ int main(int argc, char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
-	mapa.inicializa();
+	coo.inicializa();
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
@@ -51,7 +52,7 @@ void OnDraw(void)
 	glLoadIdentity();
 
 
-	mapa.dibuja();		 //aqui es donde hay que poner el código de dibujo
+	coo.dibuja();		 //aqui es donde hay que poner el código de dibujo
 
 
 
@@ -60,17 +61,20 @@ void OnDraw(void)
 }
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
-	mapa.tecla(key);
+	coo.tecla(key);
 	glutPostRedisplay();
 }
 void onSpecialKeyboardDown(int key, int x, int y)
 {
-	mapa.teclaEspecial(key);
+	coo.teclaEspecial(key);
+	glutPostRedisplay();
 }
 
 void OnTimer(int value)
 {
-	mapa.mueve();
+	coo.mueve();
+	//mapa.mueve(0.025f);
+	//mapa.moverOjo();
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
 }

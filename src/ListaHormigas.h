@@ -1,10 +1,11 @@
 #pragma once
 
-#define MAX_hormigas 8
+#define MAX_hormigas 4
 
 #include "Hormiga.h"
 #include "Caja.h"
 #include "Comida.h"
+#include "OsoHormiguero.h"
 
 
 class ListaHormigas
@@ -20,6 +21,9 @@ public:
 	Hormiga* colision(Comida c);
 	void rebote(Caja caja);
 	void rebote(Hormiga &hormi);
+	void muevete(Hormiga &e);
+	void mata(OsoHormiguero &oso);
+	bool pelea(OsoHormiguero &oso);
 
 
 	bool agregar(Hormiga* h);

@@ -1,6 +1,7 @@
 #include "ListaHormigas.h"
 #include "Interaccion.h"
 
+
 ListaHormigas::ListaHormigas(void)
 {
 	numero = 0;
@@ -37,6 +38,11 @@ void ListaHormigas::mueve(float t)
 	for (int i = 0; i<numero; i++)
 		lista[i]->mueve(t);
 }
+void ListaHormigas::muevete(Hormiga &e)
+{
+	for (int i = 0; i<numero; i++)
+		lista[i]->muevete(e);
+}
 void ListaHormigas::setPos(float a, float b) {
 	for (int i = 0; i<numero; i++)
 		lista[i]->setPos(a, b);
@@ -57,6 +63,13 @@ void ListaHormigas::eliminar(int index)
 	for (int i = index; i<numero; i++)
 		lista[i] = lista[i + 1];
 
+}
+
+void ListaHormigas::destruirContenido()
+{
+	for (int i = 0; i < MAX_hormigas; i++) {
+		eliminar(i);
+	}
 }
 
 void ListaHormigas::eliminar(Hormiga *h)
@@ -100,4 +113,22 @@ void ListaHormigas::rebote(Hormiga &hormi) {
 	for (int i = 0; i < numero; i++) {
 		Interaccion::rebote(*(lista[i]), hormi);
 	}
+}
+void ListaHormigas::mata(OsoHormiguero &oso) {
+	for (int i = 0; i<numero; i++)
+		lista[i]->mata(oso);
+
+}
+
+bool ListaHormigas::pelea(OsoHormiguero & oso)
+{
+	for (int i = 0; i < numero; i++) {
+		if (Interaccion::colision(*lista[i], oso)) {
+			eliminar(i);
+			oso.sethp();
+			return true;
+		}
+
+	}
+	return false;
 }

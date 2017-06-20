@@ -1,5 +1,5 @@
 #include "Pared.h"
-#include "comunH\glut.h"
+#include "glut.h"
 
 Pared::Pared()
 {

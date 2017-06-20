@@ -1,6 +1,7 @@
 #pragma once
 #include "Comida.h"
 #include "ListaHormigas.h"
+#include "Hormiga.h"
 #define Max_Comida 15
 class ListaComidas
 {
@@ -9,10 +10,11 @@ public:
 	virtual ~ListaComidas();
 
 	bool agregar(Comida* d);
+	bool destruir(Comida*d);
 	void destruirContenido();
 	void dibuja();
 	int getNum();
-	bool colision(ListaHormigas Lis);
+	void comer(Hormiga &h, ListaHormigas &list);
 
 
 private:

@@ -8,10 +8,12 @@ class OsoHormiguero:public ObjetosMoviles
 		virtual ~OsoHormiguero();
 		void dibuja();
 		void setAltura(float);
+		int PerderVida();
 		friend class Interaccion;
 
 	private:
 		float altura;
+		float hp;
 
 };
 

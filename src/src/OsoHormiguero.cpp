@@ -6,6 +6,7 @@ OsoHormiguero::OsoHormiguero()
 {
 	altura = 4.0f;
 	color.set(250, 70, 0);
+	hp=10;
 }
 
 
@@ -27,4 +28,8 @@ void OsoHormiguero::dibuja() {
 }
 void OsoHormiguero::setAltura(float a) {
 	altura = a;
+}
+
+int OsoHormiguero::perderVida(){
+	return 0;
 }

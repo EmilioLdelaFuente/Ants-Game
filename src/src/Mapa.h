@@ -23,4 +23,6 @@ public:
 	void moverOjo();
 	void mueve(float);
 	void dibuja();
+	int EnemigoVivo();
+	int HormigaViva();
 };

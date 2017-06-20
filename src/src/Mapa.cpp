@@ -92,3 +92,15 @@ void Mapa::tecla(unsigned char key)
 void Mapa::teclaEspecial(unsigned char key)
 {
 }
+
+int Mapa::EnemigoVivo()
+{
+	if (!=BALOO) return 0;
+	else return 1;
+}
+
+bool Mapa::HormigaViva()
+{
+	if (!=hormiga) return 0;
+	else return 1;
+}

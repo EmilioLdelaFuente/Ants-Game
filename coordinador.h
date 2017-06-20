@@ -10,10 +10,10 @@ public:
 	void teclaEspecial(unsigned char key);
 	void tecla(unsigned char key);
 	void mueve();
-	void dibuja();
+	void dibuja();
+	void inicializa();
 protected:
 	Mapa mapa;
-	enum Estado { INICIO, JUEGO, GAMEOVER, FIN};
+	enum Estado { INICIO, JUEGO, GAMEOVER, FIN };
 	Estado estado;
 };
-

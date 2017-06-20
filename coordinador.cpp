@@ -44,7 +44,7 @@ void coordinador::mueve()
 		{
 			estado = FIN;
 		}
-		if (mapa.HormigaViva())
+		if (mapa.HormigaViva() == 0)
 		{
 			estado = GAMEOVER;
 		}
@@ -58,7 +58,7 @@ void coordinador::dibuja()
 		gluLookAt(0, 7.5, 30, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
-		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::setTextColor( 255, 255, 255);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("Pulsa ENTER para jugar", 0, 0);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/grass.png").id);
@@ -73,6 +73,7 @@ void coordinador::dibuja()
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
+		ETSIDI::play("sonidos/music.mp3");
 	}
 	else if (estado == JUEGO)
 		mapa.dibuja();
